@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+    <head>
+      <style>@font-face {
+        font-family: "GrandSlang-Italic";
+        src: url("/static/fonts/GrandSlang-Italic.otf") format("woff2");
+      }
+      @font-face {
+        font-family: "GrandSlang-Italic";
+        src: url("/static/fonts/GrandSlang-Roman.otf") format("woff2");
+      }
+      :root {
+    --background: #1a1a2e;
+    --color:#ffff;
+    --primary-color: #0f3460;
+}
+html {
+    scroll-behavior: smooth;
+}
+      body {
+        margin: 0;
+    box-sizing: border-box;
+    background: var(--background);
+    color: var(--color);
+    letter-spacing: 1px;
+    transition: background 0.2s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+    }
+    
+    * {
+        text-align: center;
+        max-width: 100%;
+        font-style: italic;
+        box-sizing: border-box;
+        font-family: "GrandSlang-Italic", sans-serif;
+    }
+.theme-btn-container {
+    position: relative;
+    left: 0;
+    top: 20px;
+
+}
+
+.theme-btn {
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.theme-btn:hover {
+    width: 40px !important;
+}
+
+@keyframes wobble {
+    0% {
+        transform: scale(1.025);
+        -webkit-transform: scale(1.025);
+        -moz-transform: scale(1.025);
+        -ms-transform: scale(1.025);
+        -o-transform: scale(1.025);
+    }
+    25% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    75% {
+        transform: scale(1.025);
+        -webkit-transform: scale(1.025);
+        -moz-transform: scale(1.025);
+        -ms-transform: scale(1.025);
+        -o-transform: scale(1.025);
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+
+    .intro {
+        width: 30%;
+        position: relative;
+        bottom: 20%;
+        left: 10%;
+    }
+    
+    .pic {
+        width: 43%;
+        position: relative;
+        top: 500px;
+        left: 53%;
+        transform: rotate(-25deg);
+    }
+    
+    .pic1 {
+        position: relative;
+        transform: rotate(-5deg);
+    }
+    
+    .pic2 {
+        position: relative;
+        width: max-content;
+        bottom: 100px;
+        transform: rotate(25deg);
+    }
+    
+    .upper_head {
+        color: aliceblue;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        letter-spacing: 2px;
+        overflow: hidden;
+        font-family: "GrandSlang-Roman", sans-serif;
+    }
+    
+    .t {
+        position: relative;
+        right: 7%;
+        width: 400px;
+        font-weight: bold;
+    }
+    
+    .bn632-hover {
+        width: 160px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        height: 55px;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+        border-radius: 50px;
+        transition: all .4s ease-in-out;
+    }
+    
+    .bn632-hover:hover {
+        background-position: 100% 0;
+        transition: all .4s ease-in-out;
+    }
+    
+    .bn632-hover:focus {
+        outline: none;
+    }
+    
+    .bn632-hover.bn25 {
+        background-image: linear-gradient(
+            to right,
+            #29323c,
+            #485563,
+            #2b5876,
+            #4e4376
+        );
+        box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    }
+    
+    p {
+        color: white;
+        font-size: 28;
+        width: 27%;
+        position: relative;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-decoration: solid;
+        left: 55%;
+        bottom: 85px;
+        cursor: pointer;
+        font-family: "GrandSlang-Roman", sans-serif;
+    }
+    
+    .menuBar {
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: flex-end;
+        font-family: "GrandSlang-Roman", sans-serif;
+    }
+    
+    .sign {
+        position: relative;
+        left: 90px;
+    }
+    
+    .about {
+        position: relative;
+        left: 60px;
+    }
+    
+    .ser {
+        position: relative;
+        left: 30px;
+    }
+    
+    .serv_head {
+        color: aliceblue;
+        position: relative;
+        right: 10%;
+        top: 50px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 100;
+        font-style: italic;
+        font-size: 70px;
+        text-decoration: underline #2b5876;
+        animation: floatUpDown 2.5s ease-in-out infinite;
+    }
+    
+    @keyframes floatUpDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+    
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .serv_head1 {
+        color: aliceblue;
+        position: relative;
+        bottom: 60px;
+        left: 2%;
+        font-style: italic;
+        text-decoration: underline #4e4376;
+        font-weight: 700;
+        font-size: 70px;
+        animation: floatUpDown1 2.5s infinite;
+    }
+    
+    @keyframes floatUpDown1 {
+        0%, 100% {
+            transform: translateY(-10px);
+        }
+    
+        50% {
+            transform: translateY(0);
+        }
+    }
+    
+    .service {
+        display: grid;
+        place-items: center;
+        font-family: "GrandSlang-Roman", sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.2;
+        color: #ddd;
+    }
+    
+    .explore {
+        color: aliceblue;
+    }
+    
+    .closing {
+        color: aliceblue;
+    }
+    
+    footer.explore {
+        color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column-reverse;
+        gap: 8px;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .two {
+        position: relative;
+        top: 200px;
+        left: 35%;
+        color: aliceblue;
+        width: 40%;
+        font-style: italic;
+    }
+    
+    .expl {
+        position: relative;
+        bottom: 220px;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: underline black;
+    }
+    
+    .expl {
+        color: aliceblue;
+        position: relative;
+        top: 1px;
+    }
+    
+    .email {
+        color: white;
+    }
+    
+    .pass {
+        color: aliceblue;
+    }
+    
+    .sub {
+        text-decoration: solid;
+        font-size: 15px;
+        border: #022640;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .sub:hover {
+        background-color: rgb(142, 179, 229);
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .main {
+        max-width: 75rem;
+        padding: 3em 1.5em;
+    }
+    
+    .ser_prs {
+        position: relative;
+    }
+    
+    .ser_prs__inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5em;
+        font-family: "GrandSlang-Roman", sans-serif;
+    }
+    
+    .ser_pr {
+        --flow-space: 0.5em;
+        --hsl: var(--hue), var(--saturation), var(--lightness);
+        flex: 1 1 14rem;
+        padding: 1.5em 2em;
+        display: grid;
+        grid-template-rows: auto auto auto 1fr;
+        align-items: start;
+        gap: 1.25em;
+        color: #eceff1;
+        background-color: #0226403d;
+        border: 1px solid #eceff133;
+        border-radius: 15px;
+    }
+    
+    .ser_pr:nth-child(1) {
+        --hue: 165;
+        --saturation: 82.26%;
+        --lightness: 51.37%;
+    }
+    
+    .ser_pr:nth-child(2) {
+        --hue: 291.34;
+        --saturation: 95.9%;
+        --lightness: 61.76%;
+    }
+    
+    .ser_pr:nth-child(3) {
+        --hue: 338.69;
+        --saturation: 100%;
+        --lightness: 48.04%;
+    }
+    
+    .ser_pr__bullets {
+        line-height: 1.4;
+    }
+    
+    .ser_pr__bullets li::before {
+        display: inline-block;
+        transform: translatey(0.25ch);
+        margin-right: 1ch;
+    }
+    
+    .ser_pr__heading {
+        font-size: 1.05em;
+        font-weight: 600;
+    }
+    
+    img {
+        position: relative;
+        left: 30px;
+    }
+    
+    .flow > * + * {
+        margin-top: var(--flow-space, 1.25em);
+    }
+    
+    .cta {
+        display: block;
+        align-self: end;
+        margin: 1em 0 0.5em 0;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #0d0d0d;
+        padding: 0.7em;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
+    .overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        user-select: none;
+        opacity: var(--opacity, 0);
+        -webkit-mask: radial-gradient(
+            25rem 25rem at var(--x) var(--y),
+            #000 1%,
+            transparent 50%
+        );
+        mask: radial-gradient(
+            25rem 25rem at var(--x) var(--y),
+            #000 1%,
+            transparent 50%
+        );
+        transition: 400ms mask ease;
+        will-change: mask;
+    }
+    
+    .overlay .ser_pr {
+        background-color: hsla(var(--hsl), 0.15);
+        border-color: hsla(var(--hsl), 1);
+        box-shadow: 0 0 0 1px inset hsl(var(--hsl));
+    }
+    
+    .overlay .cta {
+        display: block;
+        grid-row: -1;
+        width: 100%;
+        background-color: hsl(var(--hsl));
+        box-shadow: 0 0 0 1px hsl(var(--hsl));
+    }
+    @media only screen and (max-width: 480px) {
+        .menuBar {
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            right: 900px;
+        }
+    
+        .sign,
+        .about,
+        .ser {
+            margin-top: 10px;
+        }
+    }</style>
+        <title>Textovert</title>
+    </head>
+<body>
+    <div class="intro_part">
+    <div class="bg">
+    <div class="upper_head">
+        <div class="t">
+<h1>Textovert</h1></div>
+<div class="menuBar">
+  <div class="sign"><a href="/logout"><button class="bn632-hover bn25">Log Out</button></div></a>
+    <div class="about"><a href="/about"><button class="bn632-hover bn25">About Us</button></div></a>
+    <div class="ser"><a href="/services"><button class="bn632-hover bn25">Services</button></div></a>
+    <div class="e"><a href="/explore"><button class="bn632-hover bn25">Explore</button></a></div>
+  </div></div>
+  <div class="intro">
+    <img src="/static/pexels-jonathan-meyer-752473.png">
+  </div>
+<p>"Welcome to a sanctuary designed exclusively for introverts, where silence speaks volumes and solitude is celebrated. Embrace the comfort of our tranquil space, specially crafted for those who find solace in quiet moments. Join us and discover a haven where introverts thrive undisturbed."
+</p>
+</div>
+    <br>
+    <div class="two"><h2>So here I'm welcoming you to join introverts revolution community where we’re empowering introverts and sensitive people to embrace their strengths</h2></div>
+     <div class="pic"><img src="/static/pexels-photo-7149136.webp">
+     </div> <div class="pic1">
+        <img src="/static/pexels-photo-7149138.webp"></div>
+    <div class="pic2">
+    <img src="/static/pexels-photo-7149140.jpeg"></div>    
+<h1 class="serv_head">Our</h1><h1 class="serv_head1">Services</h1>
+<div class="service">
+    <main class="main flow">
+        <div class="main__ser_prs ser_prs">
+          <div class="ser_prs__inner">
+            <div class="ser_prs__ser_pr ser_pr">
+              <h2 class="ser_pr__heading">Chat-o-vert</h2>
+              <img class="ser_pr__img"><img src="/static/OIG.png">
+              <ul role="list" class="ser_pr__bullets flow">
+                <li>The only thing you wanted is to be heard by someone even your silence.<br>
+                    So why don't we just talk with randoms and let them hear us as well we hear their thoughts to make them feel safe here.</li>
+              </ul>
+              <a href="/chat-o-vert" class="ser_pr__cta cta">Get Started</a>
+            </div>
+      
+            <div class="ser_prs__ser_pr ser_pr">
+              <h2 class="ser_pr__heading">Scratch-o-vert</h2>
+              <img class="ser_pr__img"><img src="/static/OIG (1).png">
+              <ul role="list" class="ser_pr__bullets flow">
+                <li>The platform where you can share your deep thinking with others or can share your thoughts.<br>
+                    Feel free to show your art of scratching quotes on paper that is hidden from this world.</li>
+              </ul>
+              <a href="/scratch-o-vert" class="ser_pr__cta cta">Get Started</a>
+            </div>
+            <div class="ser_prs__ser_pr ser_pr">
+              <h2 class="ser_pr__heading">Scene-o-vert</h2>
+              <img class="ser_pr__img"><img src="/static/OIG (1) (1).png">
+              <ul role="list" class="ser_pr__bullets flow">
+                <li>The place where all you wanted to be seen but have you ever thought about the sketches that is hidden from yourself?<br>
+                    Let's share the creativity of your imagination and let us praise your work.></li>
+              </ul>
+              <a href="/scenevert" class="ser_pr__cta cta">Get Started</a>
+            </div>
+          </div>
+          
+          <div class="overlay ser_prs__inner"></div>
+        </div>
+      </main>
+</div>
+<div class="theme-btn-container"></div>
+<script>
+console.clear();
+
+const ser_prsContainer = document.querySelector(".ser_prs");
+const ser_prsContainerInner = document.querySelector(".ser_prs__inner");
+const ser_prs = Array.from(document.querySelectorAll(".ser_pr"));
+const overlay = document.querySelector(".overlay");
+
+const applyOverlayMask = (e) => {
+  const overlayEl = e.currentTarget;
+  const x = e.pageX - ser_prsContainer.offsetLeft;
+  const y = e.pageY - ser_prsContainer.offsetTop;
+
+  overlayEl.style = `--opacity: 1; --x: ${x}px; --y:${y}px;`;
+};
+
+const createOverlayCta = (overlayser_pr, ctaEl) => {
+  const overlayCta = document.createElement("div");
+  overlayCta.classList.add("cta");
+  overlayCta.textContent = ctaEl.textContent;
+  overlayCta.setAttribute("aria-hidden", true);
+  overlayser_pr.append(overlayCta);
+};
+
+const observer = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    const ser_prIndex = ser_prs.indexOf(entry.target);
+    let width = entry.borderBoxSize[0].inlineSize;
+    let height = entry.borderBoxSize[0].blockSize;
+
+    if (ser_prIndex >= 0) {
+      overlay.children[ser_prIndex].style.width = `${width}px`;
+      overlay.children[ser_prIndex].style.height = `${height}px`;
+    }
+  });
+});
+
+const initOverlayser_pr = (ser_prEl) => {
+  const overlayser_pr = document.createElement("div");
+  overlayser_pr.classList.add("ser_pr");
+  createOverlayCta(overlayser_pr, ser_prEl.lastElementChild);
+  overlay.append(overlayser_pr);
+  observer.observe(ser_prEl);
+};
+
+ser_prs.forEach(initOverlayser_pr);
+document.body.addEventListener("pointermove", applyOverlayMask);
+
+const exploreButton = document.querySelector('.menuBar .ser_prs__cta');
+
+exploreButton.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const formSection = document.getElementById('form');
+    formSection.scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+
+const themes = [
+            {
+                background: "#1A1A2E",
+                color: "#FFFFFF",
+                primaryColor: "#0F3460"
+            },
+            {
+                background: "#461220",
+                color: "#FFFFFF",
+                primaryColor: "#E94560"
+            },
+            {
+                background: "#192A51",
+                color: "#FFFFFF",
+                primaryColor: "#967AA1"
+            },
+            {
+                background: "#F7B267",
+                color: "#000000",
+                primaryColor: "#F4845F"
+            },
+            {
+                background: "#F25F5C",
+                color: "#000000",
+                primaryColor: "#642B36"
+            },
+            {
+                background: "#231F20",
+                color: "#FFF",
+                primaryColor: "#BB4430"
+            }
+        ];
+
+        const setTheme = (theme) => {
+            const root = document.querySelector(":root");
+            root.style.setProperty("--background", theme.background);
+            root.style.setProperty("--color", theme.color);
+            root.style.setProperty("--primary-color", theme.primaryColor);
+            root.style.setProperty("--glass-color", theme.glassColor);
+        };
+
+        const displayThemeButtons = () => {
+            const btnContainer = document.querySelector(".theme-btn-container");
+            themes.forEach((theme) => {
+                const div = document.createElement("div");
+                div.className = "theme-btn";
+                div.style.cssText = `background: ${theme.background}; width: 25px; height: 25px`;
+                btnContainer.appendChild(div);
+                div.addEventListener("click", () => setTheme(theme));
+            });
+        };
+
+        displayThemeButtons();
+</script>
+<footer class="Explore" action="#" method="post">
+  <div class="expl"><h3>Sign in to explore our services</h3></div>
+  <div class="Explore" id="form"> 
+  <form id="form"> 
+       <label for="uname" class="email">Enter your email</label><br>
+       <input type="email" id="uname" value="xyz@gmail.com"><br>
+       <label for="pass" class="pass">Enter your password</label><br>
+       <input type="password" id="pass"><br><br>
+       <input type="submit" class="sub" value="Submit">
+   </form></div>
+</div>
+<div class="closing">
+   <h6>Designed by Rituraj Singh<a href="#"></a> and Yash Jain<a href="#"></a></h6>
+</div></footer>
+</body>
+</html>

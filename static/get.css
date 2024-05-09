@@ -1,0 +1,177 @@
+@font-face {
+    font-family: "GrandSlang-Italic";
+    src: url("/static/fonts/GrandSlang-Roman.otf") format("woff2");
+}
+@font-face {
+    font-family: "GrandSlang-Italic";
+    src: url("/static/fonts/GrandSlang-Italic.otf") format("woff2");
+}
+:root {
+    --background: #1a1a2e;
+    --color: #ffffff;
+    --primary-color: #0f3460;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+    background: var(--background);
+    color: var(--color);
+    letter-spacing: 1px;
+    transition: background 0.2s ease;
+    -webkit-transition: background 0.2s ease;
+    -moz-transition: background 0.2s ease;
+    -ms-transition: background 0.2s ease;
+    -o-transition: background 0.2s ease;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.theme-btn-container {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+}
+
+.theme-btn {
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+.theme-btn:hover {
+    width: 40px !important;
+}
+
+@keyframes wobble {
+    0% {
+        transform: scale(1.025);
+        -webkit-transform: scale(1.025);
+        -moz-transform: scale(1.025);
+        -ms-transform: scale(1.025);
+        -o-transform: scale(1.025);
+    }
+    25% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+    75% {
+        transform: scale(1.025);
+        -webkit-transform: scale(1.025);
+        -moz-transform: scale(1.025);
+        -ms-transform: scale(1.025);
+        -o-transform: scale(1.025);
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+    }
+}
+
+* {
+    text-align: center;
+    font-style: italic;
+    box-sizing: border-box;
+    font-family: "GrandSlang-Italic", sans-serif;
+}
+
+.serv_head {
+    color: aliceblue;
+    position: relative;
+    right: 10%;
+    top: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 70px;
+    text-decoration: underline #2b5876;
+    animation: floatUpDown 2.5s ease-in-out infinite;
+}
+
+
+
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.serv_head1 {
+    color: aliceblue;
+    position: relative;
+    bottom: 60px;
+    left: 2%;
+    font-style: italic;
+    text-decoration: underline #4e4376;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 70px;
+    animation: floatUpDown1 2.5s infinite;
+}
+
+@keyframes floatUpDown1 {
+    0%, 100% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+}
+
+button {
+    width: 15%; 
+    height: 37px;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .serv_head {
+        font-size: 40px;
+        right: 98px;
+    }
+
+    .serv_head1 {
+        font-size: 40px;
+        bottom: 20px;
+        left: 0;
+    }
+
+    button {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .serv_head {
+        font-size: 30px;
+        right: 80px;
+    }
+
+    .serv_head1 {
+        font-size: 30px;
+        bottom: 10px;
+        left: 0;
+    }
+
+    button {
+        width: 80%;
+    }
+}

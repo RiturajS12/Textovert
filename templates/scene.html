@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scene-o-vert</title>
+    <style>
+        :root {
+            --background: #1a1a2e;
+            --color: #ffffff;
+            --primary-color: #0f3460;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "poppins";
+            background: var(--background);
+            color: var(--color);
+            letter-spacing: 1px;
+            transition: background 0.2s ease;
+            -webkit-transition: background 0.2s ease;
+            -moz-transition: background 0.2s ease;
+            -ms-transition: background 0.2s ease;
+            -o-transition: background 0.2s ease;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .theme-btn-container {
+            position: absolute;
+            left: 0;
+            bottom: 4rem;
+        }
+
+        .theme-btn {
+            cursor: pointer;
+            transition: all 0.3s ease-in;
+        }
+
+        .theme-btn:hover {
+            width: 40px !important;
+        }
+
+        @keyframes wobble {
+            0% {
+                transform: scale(1.025);
+                -webkit-transform: scale(1.025);
+                -moz-transform: scale(1.025);
+                -ms-transform: scale(1.025);
+                -o-transform: scale(1.025);
+            }
+            25% {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+            }
+            75% {
+                transform: scale(1.025);
+                -webkit-transform: scale(1.025);
+                -moz-transform: scale(1.025);
+                -ms-transform: scale(1.025);
+                -o-transform: scale(1.025);
+            }
+            100% {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                -moz-transform: scale(1);
+                -ms-transform: scale(1);
+                -o-transform: scale(1);
+            }
+        }
+        h1{
+            width: 22%;
+            height: 5%;
+            position: relative;
+            left: -38%;
+            bottom:45%;
+        }
+        .msg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    opacity: 0.3;
+    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for better visual separation */
+    display: flex;
+    align-items: center;
+}
+
+.input-field {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.submit-btn {
+    padding: 8px 15px;
+    background-color: var(--primary-color); /* Use your primary color for the button background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0c2652; /* Change button background color on hover */
+}
+
+        .announcement {
+            animation: fadeOut 5s ease-in-out;
+        }
+    
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            width: 10vw;
+            height: 20vh;
+        }
+    
+        .image-container {
+            width: 100%;
+            text-align: center;
+        }
+    
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    
+</head>
+<body>
+    <section class="container">
+    <h1>Welcome to Scene-o-vert</h1>
+    <div id="messages"></div>
+    <form id="message_input_form" class="msg" enctype="multipart/form-data">
+        <input type="file" id="image_input" class="input-field" accept="image/*">
+        <button type="button" class="submit-btn" onclick="sendImage()">Send</button>
+    </form>
+    <div class="theme-btn-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        const socket = io.connect("http://127.0.0.1:5000");
+
+        socket.on('connect', function () {
+            socket.emit('join_room', { username: "{{ username }}", room: "{{ room }}" });
+        });
+
+        socket.on('join_announcement', function (data) {
+            let announcement = document.createElement('div');
+            announcement.classList.add('announcement');
+            announcement.textContent = data.username + ' has joined the room.';
+            document.getElementById('messages').appendChild(announcement);
+            setTimeout(() => {
+                announcement.remove();
+            }, 5000);
+        });
+
+        function sendImage() {
+            let fileInput = document.getElementById('image_input');
+            let file = fileInput.files[0];
+
+            if (file) {
+                let reader = new FileReader();
+                reader.onloadend = function () {
+                    let image = reader.result;
+                    socket.emit('send_image', {
+                        username: "{{ username }}",
+                        room: "{{ room }}",
+                        image: image
+                    });
+                };
+                reader.readAsDataURL(file);
+                fileInput.value = '';
+            }
+        }
+
+        socket.on('receive_image', function (data) {
+            let messages = document.getElementById('messages');
+            
+            let column = document.createElement('div');
+            column.classList.add('column');
+
+            let imgElement = document.createElement('img');
+            imgElement.src = data.image;
+
+            let senderName = document.createElement('p');
+            senderName.textContent = data.username;
+
+            column.appendChild(imgElement);
+            column.appendChild(senderName);
+            messages.appendChild(column);
+        });
+        const themes = [
+        {
+            background: "#1A1A2E",
+            color: "#FFFFFF",
+            primaryColor: "#0F3460"
+        },
+        {
+            background: "#461220",
+            color: "#FFFFFF",
+            primaryColor: "#E94560"
+        },
+        {
+            background: "#192A51",
+            color: "#FFFFFF",
+            primaryColor: "#967AA1"
+        },
+        {
+            background: "#F7B267",
+            color: "#000000",
+            primaryColor: "#F4845F"
+        },
+        {
+            background: "#F25F5C",
+            color: "#000000",
+            primaryColor: "#642B36"
+        },
+        {
+            background: "#231F20",
+            color: "#FFF",
+            primaryColor: "#BB4430"
+        }
+    ];
+
+    const setTheme = (theme) => {
+        const root = document.querySelector(":root");
+        root.style.setProperty("--background", theme.background);
+        root.style.setProperty("--color", theme.color);
+        root.style.setProperty("--primary-color", theme.primaryColor);
+        root.style.setProperty("--glass-color", theme.glassColor);
+    };
+
+    const displayThemeButtons = () => {
+        const btnContainer = document.querySelector(".theme-btn-container");
+        themes.forEach((theme) => {
+            const div = document.createElement("div");
+            div.className = "theme-btn";
+            div.style.cssText = `background: ${theme.background}; width: 25px; height: 25px`;
+            btnContainer.appendChild(div);
+            div.addEventListener("click", () => setTheme(theme));
+        });
+    };
+
+    displayThemeButtons();
+
+    </script>
+    </section>
+</body>
+</html>
