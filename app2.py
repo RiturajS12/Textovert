@@ -172,6 +172,12 @@ def handle_send_message_event(data):
     app.logger.info("{} has sent message to the room {}: {}".format(data['username'],data['room'],data['message']))
     socketio.emit('receive_message', data, room=data['room'])
 
+@socketio.on('send_messages')
+def handle_send_message_events(data):
+    app.logger.info("{} has sent message to the room {}: {}".format(data['username'],data['room'],data['message']))
+    socketio.emit('receive_messages', data, room=data['room'])
+
+
 @socketio.on('send_image')
 def handle_send_image_event(data):
     image_file = data.get('image')
@@ -199,6 +205,32 @@ def handle_leave_room_event(data):
     app.logger.info("{} has left the room {}".format(data['username'], data['room']))
     leave_room(data['room'])
     socketio.emit('leave_room_announcement', data, room=data['room'])
+
+@socketio.on('join_room2')
+def handle_join_room_events(data):
+    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
+    join_room(data['room'])
+    socketio.emit('join_room_announcement2', data, room=data['room'])
+
+
+@socketio.on('leave_room2')
+def handle_leave_room_events(data):
+    app.logger.info("{} has left the room {}".format(data['username'], data['room']))
+    leave_room(data['room'])
+    socketio.emit('leave_room_announcement2', data, room=data['room'])
+
+@socketio.on('join_room3')
+def handle_join_room_eventss(data):
+    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
+    join_room(data['room'])
+    socketio.emit('join_room_announcement3', data, room=data['room'])
+
+
+@socketio.on('leave_room3')
+def handle_leave_room_eventss(data):
+    app.logger.info("{} has left the room {}".format(data['username'], data['room']))
+    leave_room(data['room'])
+    socketio.emit('leave_room_announcement3', data, room=data['room'])
 
 
 if __name__=="__main__":
