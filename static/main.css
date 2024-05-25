@@ -1,0 +1,11 @@
+.nav{
+    width: 100%;
+    border: 10px solid black;
+    cursor: pointer;
+}
+body{
+    background-image: radial-gradient(#0e1256 1px, transparent 1px), radial-gradient(#0e1256 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    background-color: #c78961;
+}
